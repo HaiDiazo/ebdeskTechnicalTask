@@ -18,22 +18,34 @@ public class App
             tempX = tempX / 10;
         }
 
-        if (x == susunAngka)
+        if (x == susunAngka && x > 0)
         {
+            System.out.println(susunAngka);
             return true;
         }else{
             return false;
         }
     }
 
-
     public static Boolean palindrome(int x)
     {
         char[] number = String.valueOf(x).toCharArray();
+        char[] temp = new char[number.length];
+        int index = number.length - 1;
 
+        for (int i = 0; i < number.length; i++)
+        {
+            temp[i] = number[index - i];
+        }
 
+        String num2 = String.valueOf(temp);
 
-        return true;
+        if (String.valueOf(x).equals(num2))
+        {
+            return true;
+        }else {
+            return false;
+        }
     }
 
 
@@ -42,6 +54,6 @@ public class App
         Scanner input = new Scanner(System.in);
 
         System.out.print("Input: x = ");
-        System.out.println(palindromeInteger(input.nextInt()));
+        System.out.println(palindrome(input.nextInt()));
     }
 }
