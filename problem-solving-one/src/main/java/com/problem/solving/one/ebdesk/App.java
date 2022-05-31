@@ -28,8 +28,9 @@ public class App
         return 2 <= nums.size() && nums.size() <= 104;
     }
 
-    public static void getIndexValue(List<Integer> nums, int target)
+    public static String getIndexValue(List<Integer> nums, int target)
     {
+        String answer = "";
         int jum, temp = 0;
 
         for (int i = 0; i < nums.size(); i++)
@@ -47,7 +48,7 @@ public class App
 
                     if (temp == 1)
                     {
-                        System.out.println("["+i+", "+j+"]");
+                        answer = "["+i+", "+j+"]";
                         temp++;
                     }
                 }
@@ -56,8 +57,10 @@ public class App
 
         if (temp == 0)
         {
-            System.out.println("target not found");
+            answer = "target not found";
         }
+
+        return answer;
     }
 
 
@@ -100,6 +103,6 @@ public class App
         inputLine.close();
         inputInt.close();
 
-        getIndexValue(nums, target);
+        System.out.println(getIndexValue(nums, target));
     }
 }
